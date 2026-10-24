@@ -1,0 +1,1 @@
+ServiceRequest.payload: field removed in fixture, kept in descriptor for wire compatibility

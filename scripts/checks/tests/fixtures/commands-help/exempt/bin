@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Fake muse-cli for fixtures: knows alpha, beta, gamma-delta, fs ls, raw.
+LEAVES="alpha beta gamma-delta fs ls raw"
+args=("$@")
+last="${args[-1]:-}"
+if [[ "$last" != "--help" ]]; then exit 2; fi
+unset 'args[-1]'
+joined="${args[*]}"
+if [[ -z "$joined" ]]; then
+  printf '%s\n' "CLI" "" "Usage: muse-cli [COMMAND]" "" "Commands:" \
+    "  alpha       first" "  beta        second" "  gamma-delta third" \
+    "  fs          files" "  raw         raw" "" "Options:" "  --help"
+  exit 0
+fi
+if [[ "$joined" == "fs" ]]; then
+  printf '%s\n' "fs" "" "Commands:" "  ls     list" "" "Options:" "  --help"
+  exit 0
+fi
+if [[ "$joined" == "auth" ]]; then
+  printf '%s\n' "auth" "" "Commands:" "" "Options:" "  --help"
+  exit 0
+fi
+for leaf in alpha beta gamma-delta "fs ls" raw; do
+  if [[ "$joined" == "$leaf" ]]; then echo "help for $leaf"; exit 0; fi
+done
+exit 2

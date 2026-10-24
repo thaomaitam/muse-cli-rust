@@ -1,0 +1,27 @@
+# Build output (never commit)
+target/
+Cargo.lock.bak
+
+# Logs (never commit)
+*.log
+
+# Secrets and real local state (never commit)
+# A sample/template config, if one is ever added, must be an empty
+# template named *.example.json — never config.json with real values.
+.env
+.env.*
+*.pem
+*.key
+*.bak
+credentials*
+*credentials*
+*secret*
+cookies.txt
+agent-cookies.json
+config.json
+chat.json
+update.json
+*.har
+
+# OS
+.DS_Store

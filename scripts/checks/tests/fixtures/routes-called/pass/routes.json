@@ -1,0 +1,1 @@
+[{"method": "alpha.one", "http": "GET", "path": "/alpha/one"}, {"method": "beta.two", "http": "POST", "path": "/beta/two"}]
